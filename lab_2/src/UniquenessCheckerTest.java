@@ -9,20 +9,20 @@ public class UniquenessCheckerTest {
     public void testUniquenessCheckerTrue() {
         ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(2, 4, 6, 8, 9, 7, 5, 3, 1));
         boolean expected = true;
-        assertEquals(expected, UniquenessChecker.main(input));
+        assertEquals(expected, UniquenessChecker.start(input));
     }
 
     @Test
     public void testUniquenessCheckerFalse() {
         ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(2, 2, 4, 6, 8, 8, 9, 7, 5, 3, 1));
         boolean expected = false;
-        assertEquals(expected, UniquenessChecker.main(input));
+        assertEquals(expected, UniquenessChecker.start(input));
     }
 
     @Test
     public void testEmptyArray() {
         ArrayList<Integer> input = new ArrayList<Integer>();
         boolean expected = true;
-        assertEquals(expected, UniquenessChecker.main(input));
+        assertEquals(expected, UniquenessChecker.start(input));
     }
 }

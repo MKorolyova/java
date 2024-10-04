@@ -3,7 +3,7 @@ import java.util.Collections;
 
 public class ArrayProcessor {
 
-    public static ArrayList<Integer> main(int[] arg){
+    public static ArrayList<Integer> start(int[] arg){
         ArrayList<Integer> odd = new ArrayList<Integer>();
         for( int i =0; i < arg.length; i++){
             if ((arg[i]%2) == 0 ){

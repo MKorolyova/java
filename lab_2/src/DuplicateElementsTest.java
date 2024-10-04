@@ -13,14 +13,14 @@ public class DuplicateElementsTest {
     public void testNoRepeatedArray () {
         int[] input = {2, 4, 6, 8, 9, 7, 5, 3, 1};
         HashMap<Integer, ArrayList<Integer>> expected = new HashMap<>();
-        assertEquals(expected, DuplicateElements.main(input));
+        assertEquals(expected, DuplicateElements.start(input));
     }
 
     @Test
     public void testEmptyArray() {
         int[] input = {};
         HashMap<Integer, ArrayList<Integer>> expected = new HashMap<>();
-        assertEquals(expected, DuplicateElements.main(input));
+        assertEquals(expected, DuplicateElements.start(input));
     }
 
     @Test
@@ -32,6 +32,6 @@ public class DuplicateElementsTest {
         expected.put(6, new ArrayList<>(Arrays.asList(3, 7)));
         expected.put(8, new ArrayList<>(Arrays.asList(4, 11)));
 
-        assertEquals(expected, DuplicateElements.main(input));
+        assertEquals(expected, DuplicateElements.start(input));
     }
 }

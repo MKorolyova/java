@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 public class DuplicateElements {
 
-    public static  HashMap<Integer, ArrayList<Integer>> main(int[] array) {
+    public static  HashMap<Integer, ArrayList<Integer>> start(int[] array) {
 
         HashMap<Integer, ArrayList<Integer>> elementIndices = new HashMap<>();
 
