@@ -1,25 +1,8 @@
-import java.util.Scanner;
+
 
 public class CaeserCode {
     
-    static public void encryptCaesar(Scanner scanner){
-
-   
-
-        System.out.print("\n\n\nEnter shift:");
-
-            while (!scanner.hasNextInt()) {
-                System.out.print("Invalid input. Please enter a valid integer:");
-                scanner.next();
-            }
-
-        int shift  = scanner.nextInt();
-        scanner.nextLine();
-
-
-        System.out.print("Enter your text to encrypt:");
-        String text = scanner.nextLine();
-
+    public StringBuffer encryptCaesar(int shift,  String text){
 
         StringBuffer encryptText = new StringBuffer();
 
@@ -31,25 +14,10 @@ public class CaeserCode {
             char encryptCharacter = (char) encryptCharCode;
             encryptText.append(encryptCharacter);
         }
-
-        System.out.print("Encrypt text:");
-        System.out.println(encryptText);
+        return encryptText;
     }
 
-    static public void decryptCaesar (Scanner scanner){
-
-        System.out.print("\nEnter shift:");
-
-            while (!scanner.hasNextInt()) {
-                System.out.print("Invalid input. Please enter a valid integer:");
-                scanner.next();
-            }
-
-        int shift  = scanner.nextInt();
-        scanner.nextLine();
-
-        System.out.print("Enter your text to decrypt:");
-        String text = scanner.nextLine();
+    public StringBuffer decryptCaesar (int shift,  String text){
 
         StringBuffer decryptText = new StringBuffer();
 
@@ -62,7 +30,6 @@ public class CaeserCode {
             decryptText.append(decryptCharacter);
         }
 
-        System.out.print("Encrypt text:");
-        System.out.println(decryptText);
+        return decryptText;
     }
 }

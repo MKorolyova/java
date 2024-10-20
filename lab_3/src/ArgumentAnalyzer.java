@@ -1,32 +1,14 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class ArgumentAnalyzer {
-    public static void analyze(Scanner scanner){
+    public  ArrayList<String> analyze(String[] arguments,  String substring){
 
-        System.out.print("\n\n\nEnter your arguments separated by spaces: ");
-        String input = scanner.nextLine();
-        String[] arguments = input.split(" ");
-
-        System.out.print("Enter your substring for searching: ");
-        String substring = scanner.nextLine();
-
-        int count=0;
-
-        System.out.println("Arguments containing the substring \"" + substring + "\":");
-
+       ArrayList<String> argumentsWithSubstring= new  ArrayList<String>();
         for(String arg : arguments){
             if(arg.contains(substring)){
-                System.out.println(arg);
-                count++;
+                argumentsWithSubstring.add(arg);
             }
         }
-
-        if (count == 0) {
-            System.out.println("No arguments contain the substring \"" + substring + "\".");
-        } else {
-            System.out.println("Total arguments: " + (arguments.length ));
-            System.out.println("Arguments containing the substring: " + count);
-        }
-
+        return argumentsWithSubstring;
     }
 }

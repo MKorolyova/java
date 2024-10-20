@@ -1,24 +1,16 @@
+import java.util.*;
+
 public class HexArgument {
-    public static void HexArgumentConverter(String[] args) {
-        
-            int totalArgs = args.length;
-            int numericArgsCount = 0;
-    
-            System.out.println("\n\n\nArguments: ");
-            
+    public ArrayList<String> HexArgumentConverter(String[] args) {
+          ArrayList<String> answerToPrint = new ArrayList<String>();
             for (String arg : args) {
                 if (isHexNumber(arg)) {
-                    numericArgsCount++;
                     int decimalValue = Integer.parseUnsignedInt(arg, 16);
                     String binaryValue = Integer.toBinaryString(decimalValue);
-                    System.out.println("Hexadecimal number: " + arg + " -> Binary number: " + binaryValue);
-                }else{
-                    System.out.println(arg);
+                    answerToPrint.add("Hexadecimal number: " + (String) arg + " -> Binary number: " + binaryValue);
                 }
             }
-            System.out.println("\nTotal arguments number " + totalArgs);
-            System.out.println("Not hexadecimal arguments number: " + (totalArgs-numericArgsCount));
-            System.out.println("Hexadecimal arguments number: " + numericArgsCount);
+            return answerToPrint;
         }
     
 
