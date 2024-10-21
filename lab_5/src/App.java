@@ -38,9 +38,9 @@ public class App {
 
     public static void ParabolaMenu(Scanner scanner) {
         System.out.println("Enter coefficients a, b, c:");
-        double a = scanner.nextDouble();
-        double b = scanner.nextDouble();
-        double c = scanner.nextDouble();
+        double a = doubleInput(scanner);
+        double b = doubleInput(scanner);
+        double c = doubleInput(scanner);
 
         Parabola parabola = new Parabola(a, b, c);
         System.out.println("Created parabola: " + parabola);
@@ -83,66 +83,98 @@ public class App {
 
     public static void StudentMenu(Scanner scanner) {
 
-        System.out.println("1. Створити студента");
-        System.out.println("2. Створити студента-дипломника");
-        System.out.print("Оберіть опцію: ");
-        int choice = scanner.nextInt();
-        scanner.nextLine(); // Пропускаємо символ нового рядка
+        while(true){
+            System.out.println("1. Create student");
+            System.out.println("2. Creation of a graduate student");
+            System.out.println("3. Exit");
 
-        System.out.print("Введіть ім'я: ");
-        String name = scanner.nextLine();
-        System.out.print("Введіть курс: ");
-        int course = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Введіть ID: ");
-        String id = scanner.nextLine();
+            System.out.print("Choose option: ");
+            int choice = integerInput(scanner);
+            scanner.nextLine();
 
-        if (choice == 1) {
-            Student student = new Student(name, course, id);
-            student.printInfo();
-        } else if (choice == 2) {
-            System.out.print("Введіть тему диплома: ");
-            String thesisTopic = scanner.nextLine();
-            GraduateStudent gradStudent = new GraduateStudent(name, course, id, thesisTopic);
-            gradStudent.printInfo();
-        } else {
-            System.out.println("Невірний вибір!");
+            if (choice == 1) {
+                System.out.print("Enter name: ");
+                String name = scanner.nextLine();
+                System.out.print("Enter course: ");
+                int course =  integerInput(scanner);
+                scanner.nextLine();
+                System.out.print("Enter ID: ");
+                String id = scanner.nextLine();
+                Student student = new Student(name, course, id);
+                student.printInfo();
+            } else if (choice == 2) {
+                System.out.print("Enter name: ");
+                String name = scanner.nextLine();
+                System.out.print("Enter course: ");
+                int course =  integerInput(scanner);
+                scanner.nextLine();
+                System.out.print("Enter ID: ");
+                String id = scanner.nextLine();
+                System.out.print("Enter thesis topic: ");
+                String thesisTopic = scanner.nextLine();
+                GraduateStudent gradStudent = new GraduateStudent(name, course, id, thesisTopic);
+                gradStudent.printInfo();
+            } else if (choice == 3) {
+                System.out.println("Exiting...");
+                break;
+            } else {
+                System.out.println("You enter something wrong");
+            }
         }
+        
     }
 
     public static void BookMenu(Scanner scanner) {
 
-        System.out.println("1. Додати книгу");
-        System.out.println("2. Додати книгу з бібліотеки");
-        System.out.print("Оберіть опцію: ");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+        while(true){
+            System.out.println("1. Add book");
+            System.out.println("2. Add library book");
+            System.out.println("3. Exit");
 
-        System.out.print("Введіть назву: ");
-        String title = scanner.nextLine();
-        System.out.print("Введіть автора: ");
-        String author = scanner.nextLine();
-        System.out.print("Введіть рік видання: ");
-        int year = scanner.nextInt();
-        System.out.print("Введіть тираж: ");
-        int edition = scanner.nextInt();
-        System.out.print("Введіть кількість сторінок: ");
-        int pages = scanner.nextInt();
-        scanner.nextLine();
+            System.out.print("Choose option: ");
+            int choice = integerInput(scanner);
 
-        if (choice == 1) {
-            Book book = new Book(title, author, year, edition, pages);
-            book.printInfo();
-        } else if (choice == 2) {
-            System.out.print("Введіть інвентарний номер: ");
-            String inventoryNumber = scanner.nextLine();
-            System.out.print("Введіть ім'я того, хто взяв книгу: ");
-            String takenBy = scanner.nextLine();
+            
 
-            LibraryBook libraryBook = new LibraryBook(title, author, year, edition, pages, inventoryNumber, takenBy);
-            libraryBook.printInfo();
-        } else {
-            System.out.println("Невірний вибір!");
+            if (choice == 1) {
+                System.out.print("enter titleу: ");
+                String title = scanner.nextLine();
+                System.out.print("Enter author: ");
+                String author = scanner.nextLine();
+                System.out.print("Enter publication year: ");
+                int year = integerInput(scanner);
+                System.out.print("Enter edition: ");
+                int edition = integerInput(scanner);
+                System.out.print("Enter page number: ");
+                int pages = integerInput(scanner);
+                scanner.nextLine();
+                Book book = new Book(title, author, year, edition, pages);
+                book.printInfo();
+            } else if (choice == 2) {
+                System.out.print("enter titleу: ");
+                String title = scanner.nextLine();
+                System.out.print("Enter author: ");
+                String author = scanner.nextLine();
+                System.out.print("Enter publication year: ");
+                int year = integerInput(scanner);
+                System.out.print("Enter edition: ");
+                int edition = integerInput(scanner);
+                System.out.print("Enter page number: ");
+                int pages = integerInput(scanner);
+                scanner.nextLine();
+                System.out.print("Enter inventory number: ");
+                String inventoryNumber = scanner.nextLine();
+                System.out.print("Enter the name of the person who took the book: ");
+                String takenBy = scanner.nextLine();
+
+                LibraryBook libraryBook = new LibraryBook(title, author, year, edition, pages, inventoryNumber, takenBy);
+                libraryBook.printInfo();
+            } else if (choice == 3) {
+                System.out.println("Exiting...");
+                break;
+            } else {
+                System.out.println("You enter something wrong");
+            }
         }
     }
 
@@ -151,20 +183,6 @@ public class App {
         int input;
         while (true) {
             if (scanner.hasNextInt()) { 
-                input = scanner.nextInt(); 
-                break; 
-            } else {
-                System.out.println("You enter something wrong");
-                scanner.next(); 
-            }
-        }
-        return input; 
-    }
-
-    private static int floatInput(Scanner scanner){
-        int input;
-        while (true) {
-            if (scanner.hasNextFloat()) { 
                 input = scanner.nextInt(); 
                 break; 
             } else {
